@@ -1,4 +1,5 @@
 document.getElementById('NextBtn').addEventListener('click', setQuote);
+setQuote();
 
 async function fetchQuotes() {
   try {
