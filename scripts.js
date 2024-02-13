@@ -15,7 +15,11 @@ async function fetchQuotes() {
 async function getRandomQuote() {
   const quotes = await fetchQuotes();
   const randomIndex = Math.floor(Math.random() * quotes.length);
-  return quotes[randomIndex];
+  const quote = quotes[randomIndex];
+  if (!quote.author || !quote.quote) {
+    return getRandomQuote(); // Get the next quote if author or quote is empty
+  }
+  return quote;
 }
 
 function setQuote() {
